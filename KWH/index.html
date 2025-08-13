@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Online - Pre Order & Jualan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="/img/FRESH.png" alt="Logo Toko" class="logo">
+                    <span class="brand-name">Fresh Melt</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#menu" class="nav-link">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#isian" class="nav-link">Isian</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Slider -->
+    <section id="home" class="hero">
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide active">
+                    <img src="/img/acf5efcd-382a-4fda-a3c3-681be13bf89d.jpg" alt="Produk 1">
+                    <div class="slide-content">
+                        <h2>Produk Terbaru</h2>
+                        <p>Dapatkan produk terbaik dengan harga spesial</p>
+                        <button class="cta-button" onclick="scrollToSection('menu')">Pre Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="/img/Cara-Membuat-Resep-Corn-Dog-Mozarella-Ala-Barat-Anti-Gagal-.jpg" alt="Produk 2">
+                    <div class="slide-content">
+                        <h2>Diskon Spesial</h2>
+                        <p>Hemat hingga 50% untuk pre order hari ini</p>
+                        <button class="cta-button" onclick="scrollToSection('menu')">Lihat Detail</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="/img/resep-praktis-corn-dog.jpg" alt="Produk 3">
+                    <div class="slide-content">
+                        <h2>Stok Terbatas</h2>
+                        <p>Jangan lewatkan kesempatan emas ini</p>
+                        <button class="cta-button" onclick="scrollToSection('isian')">Pesan Sekarang</button>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="slider-btn next" onclick="changeSlide(1)">&#10095;</button>
+            <div class="dots-container">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="menu" class="products-section">
+        <div class="container">
+            <h2 class="section-title">Produk Kami</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="/img/Bocil-Salju.png" alt="Produk 1">
+                    <h3>Produk Premium</h3>
+                    <p class="price">Rp 150.000</p>
+                    <p class="description">Deskripsi singkat produk yang menarik dengan kualitas terbaik</p>
+                    <button class="order-btn" onclick="openOrderModal('Produk Premium', 150000)">Pre Order</button>
+                </div>
+                <div class="product-card">
+                    <img src="/img/Cireng-salju.png" alt="Produk 2">
+                    <h3>Paket Hemat</h3>
+                    <p class="price">Rp 250.000</p>
+                    <p class="description">Paket lengkap dengan harga terjangkau untuk kebutuhan Anda</p>
+                    <button class="order-btn" onclick="openOrderModal('Paket Hemat', 250000)">Pre Order</button>
+                </div>
+                <div class="product-card">
+                    <img src="/img/Odading-Mozzarella.png" alt="Produk 3">
+                    <h3>Bundle Spesial</h3>
+                    <p class="price">Rp 350.000</p>
+                    <p class="description">Bundle eksklusif untuk pelanggan setia dengan bonus menarik</p>
+                    <button class="order-btn" onclick="openOrderModal('Bundle Spesial', 350000)">Pre Order</button>
+                </div>
+                <div class="product-card">
+                    <img src="/img/cat_powder_bubblegum-copy.png" alt="Produk 4">
+                    <h3>Produk Limited</h3>
+                    <p class="price">Rp 200.000</p>
+                    <p class="description">Produk edisi terbatas dengan desain eksklusif</p>
+                    <button class="order-btn" onclick="openOrderModal('Produk Limited', 200000)">Pre Order</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section id="isian" class="order-form-section">
+        <div class="container">
+            <h2 class="section-title">Form Pre Order</h2>
+            <form id="orderForm" class="order-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="whatsapp">Nomor WhatsApp</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="produk">Pilih Produk</label>
+                        <select id="produk" name="produk" required>
+                            <option value="">-- Pilih Produk --</option>
+                            <option value="Produk Premium">Produk Premium - Rp 150.000</option>
+                            <option value="Paket Hemat">Paket Hemat - Rp 250.000</option>
+                            <option value="Bundle Spesial">Bundle Spesial - Rp 350.000</option>
+                            <option value="Produk Limited">Produk Limited - Rp 200.000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="jumlah">Jumlah</label>
+                        <input type="number" id="jumlah" name="jumlah" min="1" value="1" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="alamat">Alamat Pengiriman</label>
+                    <textarea id="alamat" name="alamat" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="catatan">Catatan Tambahan</label>
+                    <textarea id="catatan" name="catatan" rows="2" placeholder="Warna, ukuran, atau permintaan khusus"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pembayaran">Metode Pembayaran</label>
+                    <select id="pembayaran" name="pembayaran" required>
+                        <option value="">-- Pilih Metode --</option>
+                        <option value="Transfer Bank">Transfer Bank</option>
+                        <option value="E-Wallet">E-Wallet (Gopay/OVO/Dana)</option>
+                        <option value="COD">Cash on Delivery</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Kirim Pre Order</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeOrderModal()">&times;</span>
+            <h2>Pre Order Cepat</h2>
+            <form id="quickOrderForm">
+                <div class="form-group">
+                    <label for="modalNama">Nama Lengkap</label>
+                    <input type="text" id="modalNama" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalWhatsapp">Nomor WhatsApp</label>
+                    <input type="tel" id="modalWhatsapp" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalProduk">Produk</label>
+                    <input type="text" id="modalProduk" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="modalJumlah">Jumlah</label>
+                    <input type="number" id="modalJumlah" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalAlamat">Alamat</label>
+                    <textarea id="modalAlamat" rows="2" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Kirim Pre Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Toko Online</h3>
+                    <p>Platform terpercaya untuk pre order produk berkualitas dengan harga terbaik.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/tokoonline" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                            <span>@aryalokadiputro</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak Kami</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Jl. Soekarno Hatta (d/h Raya Koba), Pangkalan Baru, Kp. Bangka Belitung</p>
+                        <p><i class="fas fa-phone"></i> +62 823-3393-8165</p>
+                        <p><i class="fas fa-envelope"></i> akral.10.sdh.b@gmail.com</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Jam Operasional</h3>
+                    <p>Senin - Kamis: 09:00 & 12.00</p>
+                    <p>Jumat        : 09.00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Galio Diputro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
