@@ -126,7 +126,7 @@ function sendToWhatsApp(orderData) {
         `WhatsApp: ${orderData.whatsapp}\n` +
         `Catatan: ${orderData.catatan || '-'}`;
     
-    const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/6282333938165?text=${encodeURIComponent(message)}`;
     
     // Optional: open WhatsApp
     // window.open(whatsappUrl, '_blank');
