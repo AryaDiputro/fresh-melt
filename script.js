@@ -62,6 +62,8 @@ const quickOrderForm = document.getElementById('quickOrderForm');
 
 function openOrderModal(productName, price) {
     document.getElementById('modalProduk').value = productName;
+    // Store the price in a hidden field or data attribute for later use
+    document.getElementById('modalProduk').dataset.price = price;
     modal.style.display = 'block';
 }
 
@@ -100,10 +102,33 @@ function submitOrder(form) {
         orderData[key] = value;
     }
     
-    // Calculate total
-    const price = parseInt(orderData.price || 0);
+    // Calculate total - handle both main form and modal form
+    let price = 0;
+    
+    if (form.id === 'quickOrderForm') {
+        // For modal form, get price from data attribute
+        const productElement = document.getElementById('modalProduk');
+        price = parseInt(productElement.dataset.price || 0);
+    } else {
+        // For main form, get price from form data or calculate from product selection
+        price = parseInt(orderData.price || 0);
+        if (price === 0) {
+            // If price is not in form data, calculate from product selection
+            const productSelect = document.getElementById('produk');
+            if (productSelect) {
+                const selectedOption = productSelect.options[productSelect.selectedIndex];
+                const priceText = selectedOption.text;
+                const priceMatch = priceText.match(/Rp (\d+)/);
+                if (priceMatch) {
+                    price = parseInt(priceMatch[1]);
+                }
+            }
+        }
+    }
+    
     const quantity = parseInt(orderData.jumlah || 1);
     orderData.total = price * quantity;
+    orderData.harga = price; // Store the price for email notifications
     
     // Show loading
     showLoading();
